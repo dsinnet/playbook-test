@@ -1,0 +1,12 @@
+---
+- name: 1. install Apache
+  apt: name=apache2 state=present
+
+- name: Install PHP CLI
+  apt: name=php5 state=present
+
+- name: Add PHP 7 PPA repository
+  apt_repository: repo='ppa:ondrej/php'
+
+- name: 4. install Hello World PHP script
+  copy: src=index.php dest=/var/www/html/index.php mode=0664
