@@ -1,0 +1,31 @@
+- hosts: all
+  become: true
+
+  tasks:
+
+    - name: Install Pip
+      apt: name=python-pip state=present
+
+    - name: install docker-py with pip
+      pip:
+        name: docker-py
+
+    - name: install docker-compose with pip
+      pip:
+        name: docker-compose
+
+
+    - name: log into docker hub registry
+      docker_login:
+        email: "david@rifledesign.co.uk"
+        username: "drifle"
+        password: "rifledes@1978"
+
+    - name: ensure a container is running
+      docker_container:
+        name: rifle
+        state: started
+        image: "rifledesign/rifle_default:03"
+        pull: true
+        ports:
+          - "5000:5000"

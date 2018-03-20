@@ -1,0 +1,11 @@
+- name: create directory if they don't exist
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - /home/ubuntu/mapped/var/www/
+    - /home/ubuntu/mapped/var/lib/mysql/
+    - /home/ubuntu/mapped/etc/apache2/sites-enabled/

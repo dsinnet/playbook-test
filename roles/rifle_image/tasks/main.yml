@@ -1,0 +1,10 @@
+- name: Create a data container
+  docker_container:
+    name: rifle1
+    image: rifledesign/rifle_default:03
+    command: /bin/bash
+    volumes:
+     - /home/ubuntu/mapped/var/www/:/var/www/
+     - /home/ubuntu/mapped/var/lib/mysql/:/var/lib/mysql/
+     - /home/ubuntu/mapped/etc/apache2/sites-enabled/:/etc/apache2/sites-enabled/
+    state: present
