@@ -1,15 +1,15 @@
 # We shouldn't have to install pip to then install docker-py so that we can pull the image. There must be a conflict with the docker version installed or something.
 
-# - name: Install Pip
-#   apt: name=python-pip state=present
-#
-# - name: install docker-py with pip
-#   pip:
-#     name: docker-py
-#
-# - name: install docker-compose with pip
-#   pip:
-#     name: docker-compose
+- name: Install Pip
+  apt: name=python-pip state=present
+
+- name: install docker-py with pip
+  pip:
+    name: docker-py
+
+- name: install docker-compose with pip
+  pip:
+    name: docker-compose
 
 - name: ensure repository key is installed
   apt_key:

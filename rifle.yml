@@ -6,13 +6,16 @@
     - name: Install Pip
       apt: name=python-pip state=present
 
+    # - name: Install Docker
+    #   apt: name=docker state=present
+    #
     - name: install docker-py with pip
       pip:
         name: docker-py
-
-    - name: install docker-compose with pip
-      pip:
-        name: docker-compose
+    #
+    # - name: install docker-compose with pip
+    #   pip:
+    #     name: docker-compose
 
 
     - name: log into docker hub registry
@@ -27,5 +30,5 @@
         state: started
         image: "rifledesign/rifle_default:03"
         pull: true
-        ports:
-          - "5000:5000"
+        # ports:
+        #   - "5000:5000"
