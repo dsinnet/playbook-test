@@ -1,7 +1,7 @@
  - hosts: all
-   become: yes
-   user: ubuntu
+   # become: yes
+   user: rifle0
    roles:
-    - initialise
+    - { role: initialise, become: yes }
     - docker
     # - rifle_image

@@ -19,9 +19,9 @@
 
 - name: ensure docker registry is available
   # For Ubuntu 14.04 LTS, use this repository:
-  apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
+  # apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
   # For Ubuntu 16.04 LTS, use this repo instead:
-  # apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-xenial main' state=present
+  apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-xenial main' state=present
 
 - name: ensure docker and dependencies are installed
   apt: name=docker-engine update_cache=yes
@@ -30,8 +30,10 @@
 #- name: ensure docker can use insecure registries in 10.11.0.0/16
 #  lineinfile: "dest=/etc/default/docker regexp=^DOCKER_OPTS line=DOCKER_OPTS='--insecure-registry 10.11.0.0/16'"
 
-- service: name=docker state=restarted
 
 # - name: pull image
 #   docker_image:
-#     name: rifledesign/rifle_default:03
+#     name: rifledesign/rifle_default
+#     tag: 03
+
+- service: name=docker state=restarted

@@ -2,10 +2,10 @@
   file:
     path: "{{ item }}"
     state: directory
-    owner: root
-    group: root
+    owner: rifle0
+    group: rifle0
     mode: 0644
   with_items:
-    - /home/ubuntu/mapped/var/www/
-    - /home/ubuntu/mapped/var/lib/mysql/
-    - /home/ubuntu/mapped/etc/apache2/sites-enabled/
+    - /home/rifle0/mapped/var/www/vhosts
+    - /home/rifle0/mapped/var/lib/mysql/
+    - /home/rifle0/mapped/etc/apache2/sites-enabled/
